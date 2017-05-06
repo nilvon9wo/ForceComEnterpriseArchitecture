@@ -114,7 +114,7 @@ This document attempts to describe an incredibly rebust SFDC version-control and
 	8. With Ant, _retrieve_ all metadata from DEVA sandbox.
 		* Even if he/she has worked locally, this should be done to ensure any manipulations, 
 				such as reordering by SFDC and whitespace changes, by SFDC are captured.
-	9. With Git, _add_, _commit_, and _push_ all files to sandbox/deva/Feature/ABC-123 branch in git-repository. 
+	9. With Git, _add_, _commit_, and _push_ WIP/src directory to sandbox/deva/Feature/ABC-123 branch. 
 	
 		(sandbox/deva/Feature/ABC-123 will never be merged, 
 		but this will serve as a point of comparison when later debugging.)
@@ -193,15 +193,18 @@ This document attempts to describe an incredibly rebust SFDC version-control and
 ##### Continuous Integration
 	33. Jenkins should have a task to poll the Git developer-latest branch for changes (e.g. every 5 minutes).
 		* With Ant, Jenkins _deploys_ from developer-latest to DEV_LATEST sandbox, executing ALL the tests.
-			* If the build breaks, there is a code freeze and no more code can be commited to developer-latest branch until the problem is resolved.
+			* If the build breaks, 
+				- There must be a code freeze:
+				- No more code can be commited to developer-latest branch until the problem is resolved.
 			* Whichever Developers/Testers worked on the branch which broke the build 
 				have the immediate responsibility to investigate and fix the build.
-			* In the event the issue can not be quickly resolved, the code must be reverted to its last green state.
+			* In the event the issue can not be quickly resolved, Code must be reverted to last green state.
 
 	(Normally, humans should not interact with the DEV_LATEST org after it has been created, 
 		but they may need to in order to investigate broken builds.)
 
-	34. Jenkins should have a _deploy_ from developer-latest to ALPHA sandbox on a regular basis (e.g. nightly)
+	34. Jenkins should have a task to _deploy_ from developer-latest branch to ALPHA sandbox. 
+		* This should happen on a regular basis (e.g. nightly)
 		* This task should ONLY execute when the build is GREEN.
 	 	
 ##### Alpha (Internal/QA) Testing
@@ -213,17 +216,26 @@ This document attempts to describe an incredibly rebust SFDC version-control and
 	36. If all tests pass, the issue can be marked as "Resolved" in the ticketing system.
 
 ##### Beta (External/UAT) Testing
-	37. Periodically (as aligned to the project lifecycle), complete features should be manually _deployed_ to BETA sandbox.
-		* Because SFDC deployments can be complicated and the environment itself quirk, automation here is entirely DISCOURAGED.
+	37. Periodically (as aligned to the project lifecycle), 
+		* Complete features should be manually _deployed_ to BETA sandbox.
+		* Because SFDC deployments can be complicated and the environment itself quirk,
+			- Automation here is entirely DISCOURAGED.
+			
 	38. Features should be tested by the end-users (or their qualified proxies, preferably on the client side).
 
 	* If there is anything to be fixed, go back to step 4.
 		* Tester should provide DETAILED information regarding failure (as above)
 
 ##### Production Testing
-	37. Periodically (as aligned to the project lifecycle), complete features should be manually _deployed_ to PRODUCTION.
-		* Because SFDC deployments can be complicated and the environment itself quirk, automation here is entirely DISCOURAGED.
-	38. Features must be tested ONLY by specially-qualified end-users who meet all the following criteria:
+	39. Periodically (as aligned to the project lifecycle), 
+		* Complete features should be manually _deployed_ to PRODUCTION.
+			- Always backup production data and metadata before deployment.
+			- Metadata backup can be _commited_ and _pushed_ to a "production" branch on git, 
+				but there should always be an unmerged backup.
+		* Because SFDC deployments can be complicated and the environment itself quirk,
+			- Automation here is entirely DISCOURAGED.
+	
+	40. Features must be tested ONLY by specially-qualified end-users, meeting the following criteria:
 			* Are authorized to view production data;
 			* Are authorized to make changes in production data;
 			* Understand the risks of making changes in production; and
@@ -232,8 +244,9 @@ This document attempts to describe an incredibly rebust SFDC version-control and
 	* If there is anything to be fixed, go back to step 4.
 		* Tester should provide DETAILED information regarding failure (as above)
 			
-	39. If all tests pass, the issue can be marked as "Completed".
-		* To prevent tickets from remaining open forever, set a "drop dead" date, after which features are considered accepted, and the ticket closed.
+	41. If all tests pass, the issue can be marked as "Completed".
+		* To prevent tickets from remaining open forever, 
+			- Set a "drop dead" date, after which features are considered accepted, and the ticket closed.
 
 
 ## Resources:
