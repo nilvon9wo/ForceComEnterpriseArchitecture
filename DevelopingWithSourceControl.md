@@ -87,12 +87,12 @@ This document attempts to describe an incredibly rebust SFDC version-control and
 				- Tests to prove that multiple units can work together
 				- Tests to prove units work with user interfaces
 				- Tests to prove units work with the intended database and external servers.
-				- These must be included whenever the database or external systems are among the dependencies.
+				- These must be included whenever the database or external systems is required.
 				- Coverage should include all "happy paths" and other significant branches.
-			* End-to-End Tests (a.k.a. Acceptance Tests) 
-				- Tests to prove the situations presented by User Stories can actually be accomplished.
+			* End-to-End Tests 
+				- Tests to prove the situations presented by User Stories.
 				- These take the longest to execute and are the hardest to debug.
-				- When possible use unit or integration tests to prove as much of the functionality as possible.
+				- Prefer unit or integration tests to prove as much functionality as possible.
 				- Coverage should include "happy paths" specifically given in User Stories.
 				- Coverage should also prevent regression to any critical defects.
 		* Coverage is a metric for understanding code quality.
@@ -100,7 +100,7 @@ This document attempts to describe an incredibly rebust SFDC version-control and
 				- Achieving coverage should not be the goal of writing tests.
 				- It is only valuable to the extent developers understand what has been measured.
 				- Code which bloats coverage metrics without providing value against regression 
-					is fraudulent and -- for providing a false sense of security -- worse than useless.
+					is fraudulent and -- for providing false security -- worse than useless.
 							
 					
 	7. Executes all automated tests, both new and old.
@@ -278,6 +278,8 @@ This document attempts to describe an incredibly rebust SFDC version-control and
 	* Unit Testing, http://searchsoftwarequality.techtarget.com/definition/unit-testing
 	
 	* Integration Testing, https://msdn.microsoft.com/en-us/library/aa292128(v=vs.71).aspx
+	
+	* Acceptance Testing, https://www.agilealliance.org/glossary/acceptance/
 	
 	* Just Say No to More End-to-End Tests, https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html
 	
