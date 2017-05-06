@@ -1,2 +1,4 @@
 .project
 .settings/
+lib/ant-salesforce.jar
+sfdcRetrieve.bat
