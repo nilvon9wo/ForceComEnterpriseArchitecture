@@ -22,7 +22,6 @@
 	</target>
 
 	<target name="deploy.jenkins" depends="undeploy">
-<!--		
 		<sf:deploy
 			username="${sf.username}"
 			password="${sf.password}"
@@ -38,9 +37,27 @@
 			runAllTests="true"
 			deployRoot="${basedir}/src"
 		/>
--->		
 	</target>
 
+	<target name="deploy.package">
+		<sf:deploy
+			username="${sf.username}"
+			password="${sf.password}"
+			serverurl="${sf.server}"
+			runAllTests="true"
+			deployRoot="${basedir}/src"
+		/>
+	</target>
+
+	<target name="retrieve">
+		<sf:retrieve
+			username="${sf.username}"
+			password="${sf.password}"
+			retrieveTarget="${basedir}/src"
+			unpackaged="${basedir}/src/package.xml"
+		/>
+	</target>
+	
 	<target name="retrieve.package">
 		<sf:retrieve
 			username="${sf.username}"
