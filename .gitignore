@@ -1,4 +1,3 @@
 .project
 .settings/
-sfdcRetrieve.bat
-sfdcDeploy.bat
+*.bat
