@@ -60,8 +60,8 @@
 	
 	<target name="retrieve.package">
 		<sf:retrieve
-			username="${sf.username}"
-			password="${sf.password}"
+			username="${sf.package.username}"
+			password="${sf.package.password}"
 			retrieveTarget="${basedir}/src"
 			unpackaged="${basedir}/src/package.xml"
 		/>

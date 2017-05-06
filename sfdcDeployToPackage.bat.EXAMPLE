@@ -1,1 +1,1 @@
-ant deploy.package -lib="lib/ant-salesforce.jar" -Dsf.username=YOUR_USERNAME -Dsf.password=YOUR_PASSWORD_AND_TOKEN
+ant deploy.package -lib="lib/ant-salesforce.jar" -Dsf.package.username=YOUR_USERNAME -Dsf.package.password=YOUR_PASSWORD_AND_TOKEN
