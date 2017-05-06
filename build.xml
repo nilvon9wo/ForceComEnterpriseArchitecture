@@ -22,6 +22,7 @@
 	</target>
 
 	<target name="deploy.jenkins" depends="undeploy">
+<!--		
 		<sf:deploy
 			username="${sf.username}"
 			password="${sf.password}"
@@ -29,7 +30,6 @@
 			runAllTests="true"
 			deployRoot="${basedir}/src"
 		/>
-<!--		
 		<sf:deploy
 			username="${sf.package.username}"
 			password="${sf.package.password}"
