@@ -1,4 +1,3 @@
-# ForceComEnterpriseArchitecture
+# Force.Com Enterprise Architecture
 
-## Required
-* Install ant-salesforce.jar to the /lib directory
+## To use ant, rename and complete the example .bat files  
