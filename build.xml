@@ -29,6 +29,7 @@
 			runAllTests="true"
 			deployRoot="${basedir}/src"
 		/>
+<!--		
 		<sf:deploy
 			username="${sf.package.username}"
 			password="${sf.package.password}"
@@ -37,6 +38,7 @@
 			runAllTests="true"
 			deployRoot="${basedir}/src"
 		/>
+-->		
 	</target>
 
 	<target name="retrieve.package">
