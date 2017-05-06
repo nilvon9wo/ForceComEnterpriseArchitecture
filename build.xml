@@ -26,5 +26,14 @@
 			retrieveTarget="${basedir}/src"
 			packageNames="FormulaForce"
 		/>
+		
+		<!--
+		<executeApex
+			username="${sf.username}"
+			password="${sf.password}"
+			SeasonService.createTestSeason();
+		/>
+		-->
+		
 	</target>
 </project>
