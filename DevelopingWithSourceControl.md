@@ -108,7 +108,7 @@ This document attempts to describe an incredibly rebust SFDC version-control and
 			- Individually list only desired members instead of using "*".
 			- Keep the members alphabetically listed.
 	14. Manually MERGE (not copy) from  WIP/src directory to REPO/src directory.
-		* Do not merge sandbox/deva/Feature/ABC-123 to readyToTest/Feature/ABC-123 because might SFDC include any metadata you don't actually want. 
+		* Do not merge sandbox/deva/Feature/ABC-123 to readyToTest/Feature/ABC-123 because SFDC might include any metadata you don't actually want. 
 	
 	15. With Ant, _deploy_ from REPO/src to DEVA sandbox.
 	16. Developer executes all automated tests, both new and old (again).
