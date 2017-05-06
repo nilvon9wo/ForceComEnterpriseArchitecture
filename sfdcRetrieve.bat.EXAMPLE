@@ -1,0 +1,1 @@
+ant retrieve.package -lib="lib/ant-salesforce.jar" -Dsf.username=YOUR_USERNAME -Dsf.password=YOUR_PASSWORD_AND_TOKEN
