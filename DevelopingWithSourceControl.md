@@ -8,7 +8,7 @@ This document attempts to describe an incredibly rebust SFDC version-control and
 	* A Git repository, with at least the following folders
 		* lib - For project dependencies, including
 			* df12-deployment-tools
-				* Available from https://github.com/financialforcedev/df12-deployment-tools/tree/master/lib
+				* From df12-deployment-tools/lib (see resources)
 				* Includes ant-salesforce.jar (i.e., The Salesforce.com Migration Tool)
 		* src - For SFDC Metadata
 	* At least one SalesForce developer sandboxes for each of the following:
@@ -46,7 +46,8 @@ This document attempts to describe an incredibly rebust SFDC version-control and
 		8. With Ant, _retrieve_ all metadata from DEVA sandbox.
 		9. With Git, _add_, _commit_, and _push_ all files to sandbox/deva branch in git-repository.
 		
-		(sandbox/deva will never be merged, but this will serve as a point of comparison when later debugging.)
+		(sandbox/deva will never be merged, 
+		but this will serve as a point of comparison when later debugging.)
 		  			 
 
 ### Task Workflow
@@ -66,28 +67,45 @@ This document attempts to describe an incredibly rebust SFDC version-control and
 	5. With Git, frequently _commit_ changes to sandbox/deva/Feature/ABC-123 branch.
 		* Ideally, each commit should be small, focused and logically complete, but not break tests.
 	6. Solutions must not be considered complete appropriate automated tests have been created.
-		* Depending how the team is specialized and organized, the task of writing tests may be passed to other developers and/or to testers.
-			* The mechanics of such a workflow won't be detailed here, but this process should be adapted so each still has his/her own sandbox.
+		* Depending how the team is specialized and organized, 
+			* The task of writing tests may be passed to other developers and/or to testers.
+			* The mechanics of such a workflow won't be detailed here, 
+				but this process should be adapted so each still has his/her own sandbox.
+
+		*A test which does not fail is NOT a test*
+
 		* Automated tests should include:
-			* Unit tests - Tests of specific classes and methods
-			* Integration Tests - Tests to prove that multiple units can work together, and that they work with the database and external servers.
-			* End-to-End Tests (a.k.a. Acceptance Tests) - Tests to prove the situations presented by User Stories can actually be accomplished.
-		* Unit coverage should exist for 80% of all code (yes, this exceeds SFDC requirements).
-			* With clean code, these are the easiest to write and the most useful for regression and debugging.
-			* Because they shouldn't touch the database or external systems, they will also be the fastest to run.
-			* Therefore, these should represent the majority of the tests.
-		* Integration tests should be included whenever the database or external systems are among the dependencies.
-		* Acceptance tests should always be included for the "happy path".
-			* These take the longest to execute and are the hardest to debug.
-			* When possible use unit or integration tests to prove as much of the functionality as possible.
-		* A test which does not fail is NOT a test
-		* Coverage is a metric for understanding the quality of test coverage.
-			* Regardless of SFDC deployment requirements, achieving coverage should not be the goal of writing tests.
-			* As a measurement, it is only valuable to the extent it is understood what it is actually measuring.
-			* Code which bloats coverage metrics without providing value against regression is fraudulent and worse than worthless.
+			* Unit tests 
+				- Tests to prove specific classes and methods function as expected.
+				- If the code is clean code, these are the easiest to write.
+				- These are the fastest to execute.
+				- These are the most useful for regression and debugging.
+				- These should be the majority of your tests.
+				- Coverage should exceed at least 80% (yes, this exceeds SFDC requirements).
+				- Coverage should include all "happy paths" and other significant branches.
+			* Integration Tests 
+				- Tests to prove that multiple units can work together
+				- Tests to prove units work with user interfaces
+				- Tests to prove units work with the intended database and external servers.
+				- These must be included whenever the database or external systems are among the dependencies.
+				- Coverage should include all "happy paths" and other significant branches.
+			* End-to-End Tests (a.k.a. Acceptance Tests) 
+				- Tests to prove the situations presented by User Stories can actually be accomplished.
+				- These take the longest to execute and are the hardest to debug.
+				- When possible use unit or integration tests to prove as much of the functionality as possible.
+				- Coverage should include "happy paths" specifically given in User Stories.
+				- Coverage should also prevent regression to any critical defects.
+		* Coverage is a metric for understanding code quality.
+			* Coverage is the byproduct of composing quality tests. 
+				- Achieving coverage should not be the goal of writing tests.
+				- It is only valuable to the extent developers understand what has been measured.
+				- Code which bloats coverage metrics without providing value against regression 
+					is fraudulent and -- for providing a false sense of security -- worse than useless.
+							
+					
 	7. Executes all automated tests, both new and old.
 		* Apex tests MUST PASS regardless how they are executed.
-			* Note: There are quirks in SFDC whereby tests which are not carefully crafted may yield different results depending whether
+			* Note: Tests which are not carefully crafted may yield different results depending whether
 				they are launched through Ant, through an IDE, or through an SFDC web session. 
 	
 	* DO NOT PROCEED UNTIL ALL TESTS PASS. 
@@ -98,7 +116,8 @@ This document attempts to describe an incredibly rebust SFDC version-control and
 				such as reordering by SFDC and whitespace changes, by SFDC are captured.
 	9. With Git, _add_, _commit_, and _push_ all files to sandbox/deva/Feature/ABC-123 branch in git-repository. 
 	
-		(sandbox/deva/Feature/ABC-123 will never be merged, but this will serve as a point of comparison when later debugging.)
+		(sandbox/deva/Feature/ABC-123 will never be merged, 
+		but this will serve as a point of comparison when later debugging.)
 	
 	10. With Git, _checkout_ and _pull_ developer-latest branch.
 	11. With Git, _create_ a new branch in the REPO directory (e.g., readyToTest/Feature/ABC-123 ). 
@@ -138,7 +157,8 @@ This document attempts to describe an incredibly rebust SFDC version-control and
 ##### To Start Each Task		
 	In the REPO directory:
 	20. With Ant, _retrieve_ from DEV_LATEST sandbox. 
-	21. With Ant, _deploy_ from REPO/src folder to TESTA sandbox (for example, but each tester should have his/her own).
+	21. With Ant, _deploy_ from REPO/src folder to TESTA sandbox
+		- For example, but each tester should have his/her own.
 	22. With Git, _pull_ readyToTest/Feature/ABC-123 branch into REPO/src directory.
 	23. With Ant, _deploy_ from REPO/src to TESTA sandbox.
 	24. Execute all tests, both new and old, automated and manual.
@@ -219,23 +239,49 @@ This document attempts to describe an incredibly rebust SFDC version-control and
 ## Resources:
 
 ### Git (Version Control)
+	* Git Downloads, https://git-scm.com/downloads
+	
 	* An Intro to Git and GitHub for Beginners (Tutorial),
 		http://product.hubspot.com/blog/git-and-github-tutorial-for-beginners
+		
+	* Git Branching - Basic Branching and Merging, https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
 	
 	* How To Use Git, GitHub and the Force.com IDE with Open Source Labs Apps,
 	 	https://developer.salesforce.com/blogs/labs/2011/04/how-to-use-git-github-force-com-ide-open-source-labs-apps.html
 
 ### Apache Ant (Build Tool)
+	* The Apache Ant Project Binary Distributions, https://ant.apache.org/bindownload.cgi
+
 	* Apache Ant - Tutorial, http://www.vogella.com/tutorials/ApacheAnt/article.html
 		 	
 	* Using the Force.com Migration Tool,
-		https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_deploying_ant.htm	 	
+		https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_deploying_ant.htm
+		
+	* Financial Force Dev Deployment Tools, https://github.com/financialforcedev/df12-deployment-tools	 	
 	
 ### Jenkins (Continuous Integration)
+	* Getting Started with Jenkins, https://jenkins.io/download/ 
+	
 	* Continuous integration with Jenkins - Tutorial, http://www.vogella.com/tutorials/Jenkins/article.html
 	
 	* Setting Up Jenkins for Force.com Continuous Integration, 
 		https://developer.salesforce.com/blogs/developer-relations/2013/03/setting-up-jenkins-for-force-com-continuous-integration.html
+
+### Perforce (Merge and Diff Tools)
+	* Visual Merge and Diff Tools, https://www.perforce.com/product/components/perforce-visual-merge-and-diff-tools
+	
+	* Dealing with Merge Conflicts, https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/merge-conflicts
+	
+### Testing
+	* Test Pyramid, https://martinfowler.com/bliki/TestPyramid.html
+	
+	* Unit Testing, http://searchsoftwarequality.techtarget.com/definition/unit-testing
+	
+	* Integration Testing, https://msdn.microsoft.com/en-us/library/aa292128(v=vs.71).aspx
+	
+	* Just Say No to More End-to-End Tests, https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html
+	
+	* Software Testing, https://en.wikipedia.org/wiki/Software_testing
 	
 ### Enterprise Development
 	* Force.com Enterprise Architecture by Andrew Fawcett, Chapter 11: Source Control and Continuous Integration,
