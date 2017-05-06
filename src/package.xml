@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>FormulaForce</fullName>
+    <types>
+        <members>TEST_NamespaceUtils</members>
+        <name>ApexClass</name>
+    </types>
     <version>30.0</version>
 </Package>

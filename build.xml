@@ -24,7 +24,7 @@
 			username="${sf.username}"
 			password="${sf.password}"
 			retrieveTarget="${basedir}/src"
-			packageNames="FormulaForce"
+			unpackaged="${basedir}/src/package.xml"
 		/>
 		
 		<!--
