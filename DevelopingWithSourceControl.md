@@ -32,14 +32,15 @@
 		2. Git checkout developer-latest branch.
 		3. Delete folders within src directory, being careful to keep the package.xml
 		4. Developer uses ant to pull files from DEV_LATEST into REPO
-		5. Developer uses ant to push from local copy of LATEST to DEVA (for example, but each developer should have his/her own)  
+		5. Developer uses ant to push from local copy of DEV_LATEST (in REPO/src) to DEVA 
+			 (for example, but each developer should have his/her own)  
 
 ### Developer Workflow
 		
 #### Before Starting Each Task		
 	In the REPO directory:
 	1. Developer uses ant to pull files from DEV_LATEST into REPO
-	2. Developer uses ant to push from REPO/src to DEVA (for example, but each developer should have his/her own)
+	2. Developer uses ant to push from REPO/src to DEVA
 	
 #### For Each Task
 	In the WIP directory:
@@ -76,7 +77,7 @@
 #### Before Starting to Test each Task		
 	In the REPO directory:
 	15. Developer uses ant to pull files from DEV_LATEST into REPO
-	16. Developer uses ant to push from REPO/src to TESTA (for example, but each developer should have his/her own)
+	16. Developer uses ant to push from REPO/src to TESTA (for example, but each tester should have his/her own)
 
 #### For Each Task
 	17. Tester used git to pull Feature/ABC-123 into REPO/src
