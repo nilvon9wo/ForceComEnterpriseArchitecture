@@ -76,8 +76,8 @@
 
 #### Before Starting to Test each Task		
 	In the REPO directory:
-	15. Developer uses ant to pull files from DEV_LATEST into REPO
-	16. Developer uses ant to push from REPO/src to TESTA (for example, but each tester should have his/her own)
+	15. Tester uses ant to pull files from DEV_LATEST into REPO
+	16. Tester uses ant to push from REPO/src to TESTA (for example, but each tester should have his/her own)
 
 #### For Each Task
 	17. Tester used git to pull Feature/ABC-123 into REPO/src
