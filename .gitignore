@@ -1,5 +1,6 @@
 .project
 .settings/
+fflib_*
 sfdcDeploy.bat
 sfdcDeployToPackage.bat
 sfdcRetrieveFromPackage.bat
