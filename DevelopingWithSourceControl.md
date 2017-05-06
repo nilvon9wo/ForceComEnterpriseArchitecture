@@ -195,10 +195,10 @@ This document attempts to describe an incredibly rebust SFDC version-control and
 		* With Ant, Jenkins _deploys_ from developer-latest to DEV_LATEST sandbox, executing ALL the tests.
 			* If the build breaks, 
 				- There must be a code freeze:
-				- No more code can be commited to developer-latest branch until the problem is resolved.
+				- Code can't be commited to developer-latest branch until the problem is resolved.
 			* Whichever Developers/Testers worked on the branch which broke the build 
 				have the immediate responsibility to investigate and fix the build.
-			* In the event the issue can not be quickly resolved, Code must be reverted to last green state.
+			* If issue can not be quickly resolved, Code must be reverted to last green state.
 
 	(Normally, humans should not interact with the DEV_LATEST org after it has been created, 
 		but they may need to in order to investigate broken builds.)
@@ -246,7 +246,7 @@ This document attempts to describe an incredibly rebust SFDC version-control and
 			
 	41. If all tests pass, the issue can be marked as "Completed".
 		* To prevent tickets from remaining open forever, 
-			- Set a "drop dead" date, after which features are considered accepted, and the ticket closed.
+			- Set a "drop dead" date, after which features is any marked "Complete".
 
 
 ## Resources:
