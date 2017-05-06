@@ -1,3 +1,6 @@
 .project
 .settings/
-*.bat
+sfdcDeploy.bat
+sfdcDeployToPackage.bat
+sfdcRetrieveFromPackage.bat
+src.fromSfdc/
